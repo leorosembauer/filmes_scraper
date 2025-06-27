@@ -1,0 +1,16 @@
+Projeto: filmes_scraper
+
+Resumo:
+Coleta de filmes em cartaz pelo site AdoroCinema, com:
+- Título
+- Classificação (nota)
+- Sinopse curta
+
+Fonte:
+https://www.adorocinema.com/filmes/em-cartaz/
+
+Quantidade de filmes em cartaz coletados: 10
+Data da coleta: 2025-06-27 15:59:27
+
+Arquivo gerado:
+- data/filmes_em_cartaz.csv

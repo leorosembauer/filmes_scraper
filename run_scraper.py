@@ -1,23 +1,22 @@
 from src.scraper import AdoroCinemaScraper
-from utils import salvar_em_csv, salvar_resumo_txt_historico
+from utils.io_utils import salvar_em_csv, salvar_resumo_txt_historico
 
 def main():
     scraper = AdoroCinemaScraper()
+    filmes = scraper.coletar_filmes_em_cartaz()
 
-    filmes_cartaz = scraper.coletar_filmes_em_cartaz()
     print("\n🎬 Filmes em Cartaz:\n")
-    for filme in filmes_cartaz:
-        print(f"- {filme}")
-    salvar_em_csv("data/filmes_em_cartaz.csv", filmes_cartaz)
+    for f in filmes:
+        print(f"- {f.titulo} ({f.classificacao}): {f.sinopse[:50]}...")
 
-    melhores_filmes = scraper.coletar_melhores_filmes()
-    print("\n🏆 Melhores Avaliados:\n")
-    for filme in melhores_filmes:
-        print(f"- {filme}")
-    salvar_em_csv("data/melhores_filmes.csv", melhores_filmes)
+    salvar_em_csv([f.to_dict() for f in filmes], "filmes_em_cartaz.csv")
 
-    caminho_resumo = salvar_resumo_txt_historico("data", len(filmes_cartaz), len(melhores_filmes))
-    print(f"\n✅ Dados e resumo salvos. Arquivo resumo: {caminho_resumo}")
+    try:
+        salvar_resumo_txt_historico(filmes)
+    except Exception as e:
+        print(f"❌ Erro ao salvar resumo: {e}")
+
+    print("\n✅ Dados e resumo salvos.")
 
 if __name__ == "__main__":
     main()
