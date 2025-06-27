@@ -35,6 +35,16 @@ def salvar_resumo_txt_historico(filmes_cartaz):
             f.write(f"Data da coleta: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
             f.write("Arquivo gerado:\n- data/filmes_em_cartaz.csv\n")
 
+            # Top 5
+            f.write("\nTop 5 filmes com melhores classificações:\n")
+            filmes_ordenados = sorted(
+                filmes_cartaz,
+                key=lambda x: float(x.classificacao.replace(",", ".")) if x.classificacao.replace(",", ".").replace('.', '', 1).isdigit() else 0,
+                reverse=True
+            )
+            for i, filme in enumerate(filmes_ordenados[:5], start=1):
+                f.write(f"{i}. {filme.titulo} ({filme.classificacao})\n")
+
         print(f"✅ Resumo salvo em {caminho}")
     except Exception as e:
         print(f"❌ Erro ao salvar resumo: {e}")

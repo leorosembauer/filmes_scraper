@@ -10,7 +10,14 @@ Fonte:
 https://www.adorocinema.com/filmes/em-cartaz/
 
 Quantidade de filmes em cartaz coletados: 10
-Data da coleta: 2025-06-27 15:59:27
+Data da coleta: 2025-06-27 18:37:41
 
 Arquivo gerado:
 - data/filmes_em_cartaz.csv
+
+Top 5 filmes com melhores classificações:
+1. Oito e Meio (5,0)
+2. A Doce Vida (5,0)
+3. Como Treinar o seu Dragão (4,5)
+4. Missão Impossível - O Acerto Final (4,3)
+5. Thunderbolts* (4,3)
