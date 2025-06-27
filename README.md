@@ -8,19 +8,22 @@ Projeto em Python que realiza scraping no site [AdoroCinema](https://www.adoroci
 - Classificação (nota dos usuários)  
 - Sinopse curta  
 
-Os dados são salvos automaticamente em um arquivo `.csv`, e um resumo da coleta é gerado em `.txt`.
+Os dados são salvos automaticamente em um arquivo `.csv`, um arquivo com o top 5 filmes mais bem avaliados (`data/top_5_filmes.csv`), e um resumo da coleta é gerado em `.txt`.
 
 ## Estrutura
 
 filmes_scraper/
-├── data/ # Arquivos gerados (CSV e TXT)
+├── data/
+│   ├── filmes_em_cartaz.csv            # Dados completos dos filmes em cartaz  
+│   ├── top_5_filmes.csv                # Top 5 filmes com melhores classificações  
+│   └── resultado_YYYYMMDD_HHMMSS.txt  # Resumo da coleta  
 ├── src/
-│ ├── scraper.py # Scraper principal
-│ └── filmes_analyzer.py # Lógica para análise simples (não obrigatória)
+│   ├── scraper.py                      # Scraper principal  
+│   └── filmes_analyzer.py              # Lógica para análise simples (não obrigatória)  
 ├── utils/
-│ └── io_utils.py # Funções utilitárias de leitura e escrita
-├── run_scraper.py # Script principal de execução
-└── requirements.txt # Dependências do projeto
+│   └── io_utils.py                    # Funções utilitárias de leitura e escrita  
+├── run_scraper.py                     # Script principal de execução  
+└── requirements.txt                   # Dependências do projeto  
 
 ## Instalação e Execução
 
